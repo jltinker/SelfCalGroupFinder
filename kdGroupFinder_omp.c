@@ -68,7 +68,7 @@ int main(int argc, char **argv)
   int i;
   if(argc<5)
     {
-      fprintf(stderr,"kdGroupFinder inputfile zmin zmax frac_area [fluxlim] [color] [wcenvalues 1-6] [pbvalues 1-4]> out\n");
+      fprintf(stderr,"kdGroupFinder inputfile zmin zmax frac_area [fluxlim] [color] [wcenvalues 1-6] [Bsat_values 1-4] [wchi_values 1-4]> out\n");
       exit(0);
     }
   ARGC = argc;
