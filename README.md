@@ -4,8 +4,9 @@ Basic Usage:
 kdGroupFinder inputfile zmin zmax frac_area [fluxlim] [color] [wcenvalues 1-6] [Bsat_values 1-4] [wchi_values 1-4]> out
 
 - inputfile: the galaxy file in which to find the groups (format described below)
-- zmin: minimum redshift. Mainly for volume-limited samples. For flux-limited, use value below all galaxies in file
-- zmax: maximum redshift. .Mainly for volume-limited samples. For flux-limited, use value above all galaxies in file.
+- zmin: minimum redshift. Mainly for volume-limited samples. For flux-limited, use value below all galaxies in file.
+- zmax: maximum redshift. Mainly for volume-limited samples. For flux-limited, use value above all galaxies in file.
+- fracarea: the fraction of the sky covered by the galaxy sample. (Used to calculate volumes).
 - fluxlim - 1/0 to delineate if the input file is flux-limted or volume-limited.
 - color - 1/0 will the input file have color information (for each galaxy, 1=quiescent, 0=star-forming).
 - wcenvalues - these are the 6 free parameters that govern the weights on the total group luminosity. These are taken from Equation (4) in the SDSS Application paper (Tinker 2020).
@@ -27,7 +28,9 @@ kdGroupFinder inputfile zmin zmax frac_area [fluxlim] [color] [wcenvalues 1-6] [
   - wchi[4] - omega_chi,L,q
 
 Example Usage, taken randomly from the posterior distribution of parameters in the MCMC anlaysis in the paper.
-- kdGroupFinder_omp sdss_fluxlim_v1.0.dat  0 1 0.179 1 1  13.1 2.421701964499512 12.9 4.84 17.4 2.67 -0.92 10.25 12.993 -8.04 2.68 1.10 2.23 0.48 >outxx
+- kdGroupFinder_omp sdss_fluxlim_v1.0.dat  0 1 0.179 1 1 13.1 2.42 12.9 4.84 17.4 2.67 -0.92 10.25 12.993 -8.04 2.68 1.10 2.23 0.48 >outxx
+
+For formats of the input and outout files, see the file descriptions at the project's web page. Note that the actual input file for the catalog is provided.
 
 NB: The code expects a tabulated halo mass function is in the run directory, in a file called "halo_mass_function.dat." I have supplied one in the repo for the Bolshoi Planck cosmology using the Tinker et al (2008) halo mass function.
 
